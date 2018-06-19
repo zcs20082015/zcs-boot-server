@@ -1,5 +1,9 @@
 package com.zcs.boot.server;
 
+import com.alibaba.fastjson.JSON;
+import com.zcs.boot.server.entity.OperInfo;
+import com.zcs.boot.server.service.oper.IOperService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,10 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @RequestMapping("/test")
-    public String test(){
+    @Autowired
+    private IOperService operService;
 
-        System.out.println("ceshi ");
-        return "test";
+    @RequestMapping("/oper")
+    public String test(String correlationID){
+
+        OperInfo oper=operService.getOperInfo(correlationID,"admin");
+
+        return JSON.toJSONString(oper);
     }
 }
