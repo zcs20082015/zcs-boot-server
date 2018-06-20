@@ -9,4 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Date: 2018/6/19 20:29
  **/
 public interface RoleInfoDao extends JpaRepository<RoleInfo,Integer> {
+
+    public RoleInfo getRoleInfoByOidRole(String oidRole);
 }

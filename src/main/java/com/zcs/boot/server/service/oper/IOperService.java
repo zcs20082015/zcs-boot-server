@@ -17,11 +17,35 @@ public interface IOperService {
 
 
 
+    /**
+    *@Desc: 获取操作员信息
+    *@Author: zhengcs@uubee.com
+    *@Date: 2018/6/20 12:48
+    *@Modified: 
+    */
     public OperInfo getOperInfo(String correlationID, String oidOper);
 
+    /**
+    *@Desc: 获取操作员角色
+    *@Author: zhengcs@uubee.com
+    *@Date: 2018/6/20 12:48
+    *@Modified: 
+    */
     public List<RoleInfo> getRoleListByOper(String correlationID, String oidOper);
 
-    public List<MenuInfo> getMenuListByOper(String correlationID, String oidOper);
+    /**
+    *@Desc: 获取操作员权限信息
+    *@Author: zhengcs@uubee.com
+    *@Date: 2018/6/20 12:49
+    *@Modified: 
+    */
+    public List<String> getPermissionsByOper(String correlationID, String oidOper);
 
+    /**
+    *@Desc: 通过url查询菜单
+    *@Author: zhengcs@uubee.com
+    *@Date: 2018/6/20 12:49
+    *@Modified: 
+    */
     public String getMenuCodeByUrl(String correlationID,String url);
 }

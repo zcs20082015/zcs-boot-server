@@ -28,11 +28,11 @@ public class RoleInfo implements Serializable {
     private Integer status;
 
     @ManyToMany
-    @JoinTable(name="tb_role_menu",joinColumns = {@JoinColumn(name="oid_role")},inverseJoinColumns = {@JoinColumn(name="oid_menu")})
+    @JoinTable(name="tb_role_menu",joinColumns = {@JoinColumn(name="oid_role",referencedColumnName = "oid_role")},inverseJoinColumns = {@JoinColumn(name="oid_menu",referencedColumnName = "oid_menu")})
     private List<MenuInfo> menuList;
 
     @ManyToMany
-    @JoinTable(name="tb_oper_role",joinColumns = {@JoinColumn(name="oid_role")},inverseJoinColumns = {@JoinColumn(name="oid_oper")})
+    @JoinTable(name="tb_oper_role2",joinColumns = {@JoinColumn(name="oid_role",referencedColumnName = "oid_role")},inverseJoinColumns = {@JoinColumn(name="oid_oper",referencedColumnName = "oid_oper")})
     private List<OperInfo> operList;
 
     public Integer getId() {

@@ -1,8 +1,10 @@
 package com.zcs.boot.server.dao;
 
+import com.zcs.boot.server.entity.MenuInfo;
 import com.zcs.boot.server.entity.OperInfo;
 import com.zcs.boot.server.entity.RoleInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

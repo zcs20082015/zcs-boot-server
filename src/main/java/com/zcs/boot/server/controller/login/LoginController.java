@@ -1,6 +1,9 @@
 package com.zcs.boot.server.controller.login;
 
 import com.zcs.boot.server.controller.BaseController;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.LockedAccountException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +23,7 @@ public class LoginController extends BaseController{
 
     /**
     *@Desc: 登录
-    *@Author: zhengcs@uubee.com
+    *@Author: zhengcs
     *@Date: 2018/6/12 11:26
     *@Modified: 
     */
@@ -33,7 +36,7 @@ public class LoginController extends BaseController{
 
         String msg="";
         if(null!=exceptionMsg){
-            /*if (UnknownAccountException.class.getName().equals(exceptionMsg)) {
+            if (UnknownAccountException.class.getName().equals(exceptionMsg)) {
                 System.out.println("UnknownAccountException -- > 账号不存在：");
                 msg = "UnknownAccountException -- > 账号不存在：";
             } else if (IncorrectCredentialsException.class.getName().equals(exceptionMsg)) {
@@ -48,7 +51,7 @@ public class LoginController extends BaseController{
             } else {
                 msg = "else >> "+exceptionMsg;
                 System.out.println("else -- >" + exceptionMsg);
-            }*/
+            }
         }
 
         model.addAttribute("msg",msg);

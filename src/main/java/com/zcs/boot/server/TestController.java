@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author: zhengcs@uubee.com
  * @Desc:
@@ -19,11 +21,11 @@ public class TestController {
     @Autowired
     private IOperService operService;
 
-    @RequestMapping("/oper")
+    @RequestMapping("/mng")
     public String test(String correlationID){
 
-        OperInfo oper=operService.getOperInfo(correlationID,"admin");
+        List<String> permissions=operService.getPermissionsByOper(correlationID,"zhengcs");
 
-        return JSON.toJSONString(oper);
+        return JSON.toJSONString(permissions);
     }
 }

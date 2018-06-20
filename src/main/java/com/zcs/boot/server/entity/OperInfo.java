@@ -28,10 +28,12 @@ public class OperInfo implements Serializable {
     @Column(name="user_login")
     private String userLogin;
 
+    private String password;
+
     private Integer status;
 
     @ManyToMany
-    @JoinTable(name="tb_oper_role",joinColumns={@JoinColumn(name="oid_oper")},inverseJoinColumns = {@JoinColumn(name="oid_role")})
+    @JoinTable(name="tb_oper_role2",joinColumns={@JoinColumn(name="oid_oper",referencedColumnName = "oid_oper")},inverseJoinColumns = {@JoinColumn(name="oid_role",referencedColumnName = "oid_role")})
     private List<RoleInfo> roleList;
 
     public Integer getId() {
@@ -72,6 +74,14 @@ public class OperInfo implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<RoleInfo> getRoleList() {

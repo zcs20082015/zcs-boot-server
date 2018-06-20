@@ -1,6 +1,6 @@
-/*
 package com.zcs.boot.server.config;
 
+import com.zcs.boot.server.share.shiro.MyShiroRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -11,14 +11,12 @@ import org.springframework.context.annotation.Configuration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-*/
 /**
  * @author: zhengcs@uubee.com
  * @Desc: shiro配置
  * @Date: 2018/6/8 16:35
  * @Modified:
- **//*
-
+ **/
 @Configuration
 public class ShiroConfig {
 
@@ -34,7 +32,7 @@ public class ShiroConfig {
         Map<String,String> filterChainDefinitionMap=new LinkedHashMap<>();
 
         //过滤链定义，将/**放到最后面，否则出问题
-        //filterChainDefinitionMap.put("/common/go","anon");
+
         filterChainDefinitionMap.put("/**","authc");
 
         //退出过滤器
@@ -65,15 +63,13 @@ public class ShiroConfig {
         return myShiroRealm;
     }
 
-    */
-/**
+    /**
     *@Desc: 密码加密算法---两次md5
      * 由于此算法的两次加密逻辑和有贝的不一致，所以不使用此加密算法
     *@Author: zhengcs@uubee.com
     *@Date: 2018/6/12 18:07
     *@Modified: 
-    *//*
-
+    */
     @Bean
     public HashedCredentialsMatcher credentialsMatcher(){
         HashedCredentialsMatcher credentialsMatcher=new HashedCredentialsMatcher();
@@ -82,4 +78,3 @@ public class ShiroConfig {
         return credentialsMatcher;
     }
 }
-*/
