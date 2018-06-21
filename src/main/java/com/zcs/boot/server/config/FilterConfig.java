@@ -28,8 +28,8 @@ public class FilterConfig {
     public FilterRegistrationBean registrationBean(){
 
         FilterRegistrationBean registrationBean=new FilterRegistrationBean();
-        registrationBean.setFilter(new OpenSessionInViewFilter());
-        registrationBean.setName("openSessionInViewFilter");
+        registrationBean.setFilter(new OpenEntityManagerInViewFilter());
+        registrationBean.setName("openEntityManagerInViewFilter");
 
         registrationBean.setUrlPatterns(Arrays.asList("/*"));
         registrationBean.setOrder(Integer.MAX_VALUE);
@@ -38,8 +38,8 @@ public class FilterConfig {
     }
 
 
-    @Bean
+    /*@Bean
     public SessionFactory sessionFactory(@Qualifier("entityManagerFactory") EntityManagerFactory emf){
         return emf.unwrap(SessionFactory.class);
-    }
+    }*/
 }

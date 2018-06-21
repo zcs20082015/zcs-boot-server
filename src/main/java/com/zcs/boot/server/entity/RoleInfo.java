@@ -31,7 +31,7 @@ public class RoleInfo implements Serializable {
     @JoinTable(name="tb_role_menu",joinColumns = {@JoinColumn(name="oid_role",referencedColumnName = "oid_role")},inverseJoinColumns = {@JoinColumn(name="oid_menu",referencedColumnName = "oid_menu")})
     private List<MenuInfo> menuList;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="tb_oper_role2",joinColumns = {@JoinColumn(name="oid_role",referencedColumnName = "oid_role")},inverseJoinColumns = {@JoinColumn(name="oid_oper",referencedColumnName = "oid_oper")})
     private List<OperInfo> operList;
 

@@ -1,4 +1,6 @@
 spring:
+  cache:
+    type: redis
   redis:
     database: 0
     host: 118.31.214.77
@@ -35,10 +37,7 @@ spring:
     show-sql: true
     database: mysql
     open-in-view: true
-    properties:
-      hibernate:
-        current_session_context_class:
-          org.springframework.orm.hibernate4.SpringSessionContext
+
 
 
 

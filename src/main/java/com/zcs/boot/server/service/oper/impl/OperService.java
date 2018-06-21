@@ -10,8 +10,10 @@ import com.zcs.boot.server.exception.ParameterException;
 import com.zcs.boot.server.service.oper.BaseService;
 import com.zcs.boot.server.service.oper.IOperService;
 import com.zcs.boot.server.share.util.UtilTool;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -30,17 +32,22 @@ public class OperService extends BaseService implements IOperService {
 
 
     @Override
+    @Cacheable(value = "operInfo", key="'oper-'+#oidOper")
     public OperInfo getOperInfo(String correlationID, String oidOper) {
-        OperInfo oper=operInfoDao.getOperInfoByOidOper(oidOper);
+        info(correlationID,oidOper,"进入操作员信息查询接口");
+        if(isNull(oidOper)){
+            throw new ParameterException();
+        }
+        OperInfo oper = operInfoDao.getOperInfoByOidOper(oidOper);
+
         return oper;
     }
 
     @Override
+    @Cacheable(value = "operInfo",key="'roles-'+#oidOper")
     public List<RoleInfo> getRoleListByOper(String correlationID, String oidOper){
-        if(UtilTool.isNull(oidOper)){
-            throw new ParameterException();
-        }
-        OperInfo oper=operInfoDao.getOperInfoByOidOper(oidOper);
+
+        OperInfo oper=getOperInfo(correlationID,oidOper);
 
         if(null==oper){
             throw new BusinessException("操作员信息不存在");
@@ -53,12 +60,10 @@ public class OperService extends BaseService implements IOperService {
     }
 
     @Override
+    @Cacheable(value = "operInfo",key="'permissions-'+#oidOper")
     public List<String> getPermissionsByOper(String correlationID, String oidOper) {
 
-        if(UtilTool.isNull(oidOper)){
-            throw new ParameterException();
-        }
-        OperInfo oper=operInfoDao.getOperInfoByOidOper(oidOper);
+        OperInfo oper=getOperInfo(correlationID,oidOper);
 
         if(null==oper){
             throw new BusinessException("操作员信息不存在");
@@ -84,8 +89,9 @@ public class OperService extends BaseService implements IOperService {
     }
 
     @Override
+    @Cacheable(value = "menuInfo",key = "'url-'+#url")
     public String getMenuCodeByUrl(String correlationID, String url) {
-        if(UtilTool.isNull(url)){
+        if(isNull(url)){
             throw new ParameterException();
         }
 

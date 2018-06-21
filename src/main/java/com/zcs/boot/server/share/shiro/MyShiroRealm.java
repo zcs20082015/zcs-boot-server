@@ -35,6 +35,7 @@ public class MyShiroRealm extends AuthorizingRealm{
         String oidOper=(String) token.getPrincipal();
         String correlationID= MDC.get(Globals.CORRELATIONID);
         info(correlationID,oidOper,"进入操作员登录认证处理");
+
         OperInfo oper=operService.getOperInfo(correlationID,oidOper);
         if(oper.getStatus()!=1){
             throw new LockedAccountException();

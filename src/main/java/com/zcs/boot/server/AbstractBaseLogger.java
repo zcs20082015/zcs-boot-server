@@ -1,6 +1,7 @@
 package com.zcs.boot.server;
 
 import com.alibaba.fastjson.JSON;
+import com.zcs.boot.server.share.util.UtilTool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -78,5 +79,16 @@ public abstract class AbstractBaseLogger {
             return method.getName();
         }
         return "";
+    }
+
+    /**
+    *@Desc: 判断非空
+    *@Author: zhengcs@uubee.com
+    *@Date: 2018/6/21 10:00
+    *@Modified: 
+    */
+    protected boolean isNull(String str){
+
+        return UtilTool.isNull(str);
     }
 }

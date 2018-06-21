@@ -1,5 +1,6 @@
 package com.zcs.boot.server.entity;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.cache.annotation.EnableCaching;
 
 import javax.persistence.*;
@@ -32,7 +33,7 @@ public class OperInfo implements Serializable {
 
     private Integer status;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="tb_oper_role2",joinColumns={@JoinColumn(name="oid_oper",referencedColumnName = "oid_oper")},inverseJoinColumns = {@JoinColumn(name="oid_role",referencedColumnName = "oid_role")})
     private List<RoleInfo> roleList;
 
@@ -91,4 +92,5 @@ public class OperInfo implements Serializable {
     public void setRoleList(List<RoleInfo> roleList) {
         this.roleList = roleList;
     }
+
 }

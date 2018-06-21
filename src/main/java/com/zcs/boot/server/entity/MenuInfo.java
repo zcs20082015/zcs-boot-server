@@ -13,6 +13,8 @@ import java.io.Serializable;
 @Table(name="tb_menu_info")
 public class MenuInfo implements Serializable {
 
+
+
     @Id@GeneratedValue
     private Integer id;
 
