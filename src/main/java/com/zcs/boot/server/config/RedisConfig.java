@@ -33,14 +33,15 @@ import java.lang.reflect.Method;
 public class RedisConfig extends CachingConfigurerSupport{
 
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory cf) {
-        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+    public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory cf) {
+        RedisTemplate<String, String> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(cf);
+        setSerializer(redisTemplate);
         return redisTemplate;
     }
 
     @Bean
-    public CacheManager cacheManager(RedisTemplate<String, Object> redisTemplate) {
+    public CacheManager cacheManager(RedisTemplate<String, String> redisTemplate) {
         RedisCacheManager cacheManager = new RedisCacheManager(redisTemplate);
         cacheManager.setDefaultExpiration(30);
         cacheManager.setUsePrefix(true);//必须设置，否则会报错EXECABORT Transaction discarded because of previous errors
@@ -67,10 +68,7 @@ public class RedisConfig extends CachingConfigurerSupport{
     }
 
 
-    private void setSerializer(StringRedisTemplate template) {
-        RedisSerializer<String> redisSerializer=new StringRedisSerializer();
-        template.setKeySerializer(redisSerializer);
-        template.setHashKeySerializer(redisSerializer);
+    private void setSerializer(RedisTemplate template) {
 
         Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
         ObjectMapper om = new ObjectMapper();
@@ -78,6 +76,7 @@ public class RedisConfig extends CachingConfigurerSupport{
         om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
         jackson2JsonRedisSerializer.setObjectMapper(om);
         template.setValueSerializer(jackson2JsonRedisSerializer);
+        template.afterPropertiesSet();
     }
 
 

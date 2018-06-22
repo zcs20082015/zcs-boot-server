@@ -28,11 +28,11 @@ public class TestController {
     @RequestMapping("/mng")
     public String test(String correlationID){
 
-        //String permissions=operService.getMenuCodeByUrl(correlationID,"/boot/mng");
+        String permissions=operService.getMenuCodeByUrl(correlationID,"/boot/mng");
 
         operService.getOperInfo(correlationID,"zhengcs");
-        //redisUtil.set("qqweqwr","MNG");
-        String res=redisUtil.getString("test2-zhengcs");
-        return res;
+        List list=operService.getPermissionsByOper(correlationID,"zhengcs");
+
+        return JSON.toJSONString(list);
     }
 }
