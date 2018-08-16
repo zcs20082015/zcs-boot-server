@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @author: zhengcs@uubee.com
+ * @author: zhengcs
  * @Desc: 角色信息
  * @Date: 2018/6/19 19:40
  * @Modified:

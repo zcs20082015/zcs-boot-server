@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @author: zhengcs@uubee.com
+ * @author: zhengcs
  * @Desc: shiro配置
  * @Date: 2018/6/8 16:35
  * @Modified:

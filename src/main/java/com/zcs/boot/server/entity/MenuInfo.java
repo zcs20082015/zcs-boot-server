@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * @author: zhengcs@uubee.com
+ * @author: zhengcs
  * @Desc: 菜单信息
  * @Date: 2018/6/19 19:30
  * @Modified:

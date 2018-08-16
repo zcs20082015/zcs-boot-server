@@ -1,7 +1,7 @@
 package com.zcs.boot.server.domain;
 
 /**
- * @Author: zhengcs@uubee.com
+ * @Author: zhengcs
  * @Desc:响应结果
  * @Date: 2018/6/6 16:33
  * @Modified:

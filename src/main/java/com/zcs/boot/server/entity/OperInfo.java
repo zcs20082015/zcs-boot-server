@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @author: zhengcs@uubee.com
+ * @author: zhengcs
  * @Desc: 操作员信息表
  * @Date: 2018/6/19 19:06
  * @Modified:

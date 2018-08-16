@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @author: zhengcs@uubee.com
+ * @author: zhengcs
  * @Desc: 通用接口
  * @Date: 2018/6/12 10:28
  * @Modified:

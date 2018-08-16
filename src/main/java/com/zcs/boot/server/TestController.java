@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * @author: zhengcs@uubee.com
+ * @author: zhengcs
  * @Desc:
  * @Date: 2018/6/19 17:19
  * @Modified:
