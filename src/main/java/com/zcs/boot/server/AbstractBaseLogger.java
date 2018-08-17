@@ -83,7 +83,7 @@ public abstract class AbstractBaseLogger {
 
     /**
     *@Desc: 判断非空
-    *@Author: zhengcs@uubee.com
+    *@Author: zhengcs
     *@Date: 2018/6/21 10:00
     *@Modified: 
     */

@@ -1,12 +1,3 @@
-/** 
- * @Project     API4Diversion 
- * @File        ParameterException.java 
- * @Package     com.uubee.diversion.exception 
- * @Version     V1.0 
- * @Date        2017年3月31日 上午9:14:52 
- * @Author      maxm@uubee.com 
- */
-
 package com.zcs.boot.server.exception;
 
 

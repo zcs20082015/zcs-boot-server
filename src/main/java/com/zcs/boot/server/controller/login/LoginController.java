@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author: zhengcs@uubee.com
+ * @author: zhengcs
  * @Desc: 登录接口
  * @Date: 2018/6/12 11:24
  * @Modified:

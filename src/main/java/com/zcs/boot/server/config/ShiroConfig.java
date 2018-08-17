@@ -66,7 +66,7 @@ public class ShiroConfig {
     /**
     *@Desc: 密码加密算法---两次md5
      * 由于此算法的两次加密逻辑和有贝的不一致，所以不使用此加密算法
-    *@Author: zhengcs@uubee.com
+    *@Author: zhengcs
     *@Date: 2018/6/12 18:07
     *@Modified: 
     */

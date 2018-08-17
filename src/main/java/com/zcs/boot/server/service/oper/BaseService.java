@@ -12,7 +12,7 @@ public class BaseService extends AbstractBaseLogger {
 
     /**
     *@Desc: 判断返回码是不是成功
-    *@Author: zhengcs@uubee.com
+    *@Author: zhengcs
     *@Date: 2018/6/11 21:37
     *@Modified: 
     */
